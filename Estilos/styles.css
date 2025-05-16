@@ -29,6 +29,7 @@ body, div, ul, nav, header, li, a {
     font-family: 'Spectral SC';
     font-size: 20px;
     color: var(--hunyadi-yellow);
+    text-transform: uppercase;
 }
 
 .header__menu-toggle {
@@ -118,7 +119,8 @@ body, div, ul, nav, header, li, a {
         position: static;
         height: auto;
         width: 100%;
-        background-image: linear-gradient(to bottom, var(--space-cadet), var(--ghost-white));
+        background-image: linear-gradient(to bottom, var(--space-cadet) 70%, var(--ghost-white));
+        background-image: linear-gradient(to right, var(--space-cadet) 40%, var(--blue-munsell));
     }
 
     .header__nav-list {
