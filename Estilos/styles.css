@@ -1,0 +1,154 @@
+* {
+    box-sizing: border-box;
+    --hunyadi-yellow: #e3b05b;
+    --space-cadet: #24214b;
+    --blue-munsell: #53919b;
+    --ghost-white: #f5f3f7;
+}
+
+body {
+    background-color: var(--ghost-white);
+    font-family: 'Lora';
+}
+
+body, div, ul, nav, header, li, a {
+    margin: 0;
+    padding: 0;
+}
+
+/* ----- HEADER SECTION ----- */
+
+.header {
+    background-color: var(--space-cadet);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    font-family: 'Spectral SC';
+    font-size: 20px;
+    color: var(--hunyadi-yellow);
+}
+
+.header__menu-toggle {
+    color: var(--hunyadi-yellow);
+    font-size: 3rem;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.header__checkbox {
+    display: none;
+}
+
+.header__nav {
+    display: none;
+    background-color: var(--space-cadet);
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    z-index: -1;
+}
+
+.header__nav-list {
+    display: flex;
+    flex-direction: column;
+    height: 20vh;
+    width: 100%;
+    margin: auto;
+    justify-content: space-evenly;
+}
+
+.header__nav-list--arriba {
+    position: absolute;
+    top: 30%;
+}
+
+.header__nav-list--abajo {
+    position: absolute;
+    bottom: 34.3%;
+}
+
+.header__checkbox:checked ~ .header__nav {
+    display: flex;
+}
+
+.header__logo-container {
+    width: 100%;
+    height: 150px;
+}
+
+.header__logo {
+    max-width: 100%;
+    width: 100px;
+    margin-top: 10px;
+}
+
+.header__nav-item {
+    list-style: none;
+}
+
+.header__nav-item a {
+    color: inherit;
+}
+
+.header__nav-item a:not(:is(:hover, :active)) {
+    text-decoration: none;
+}
+
+/* ----- HEADER QUERIES ----- */
+
+@media screen and (min-width: 720px) {
+    .header {
+        padding: 20px 0;
+        height: 150px;
+        position: sticky;
+        top: 0;
+        justify-content: center;
+    }
+
+    .header__nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        position: static;
+        height: auto;
+        width: 100%;
+        background-image: linear-gradient(to bottom, var(--space-cadet), var(--ghost-white));
+    }
+
+    .header__nav-list {
+        flex-direction: row;
+        height: auto;
+        width: auto;
+        position: static;
+        margin: 0;
+        padding: 0;
+    }
+
+    .header__nav-list--arriba {
+        justify-content: space-evenly; 
+        flex: 1;
+    }
+
+    .header__logo-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 0 0 auto;
+        width: 120px;
+    }
+    
+    .header__nav-list--abajo {
+        justify-content: space-evenly;
+        flex: 1;
+    }
+
+    .header__menu-toggle {
+        display: none;
+    }
+}
