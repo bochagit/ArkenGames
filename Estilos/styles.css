@@ -166,29 +166,49 @@ body, div, ul, nav, header, li, a {
         background: linear-gradient(to bottom, var(--space-cadet) 90%, var(--ghost-white));
     }
 
-    25% {
+    10% {
+        height: 120px;
+        background: linear-gradient(to bottom, var(--space-cadet) 90%, var(--ghost-white));
+    }
+
+    20% {
         height: 110px;
         background: linear-gradient(to bottom, var(--space-cadet) 80%, var(--ghost-white));
     }
 
-    50% {
+    30% {
         height: 100px;
         background: linear-gradient(to bottom, var(--space-cadet) 70%, var(--ghost-white));
     }
 
-    75% {
+    40% {
         height: 95px;
         background: linear-gradient(to bottom, var(--space-cadet) 60%, var(--ghost-white));
     }
 
-    80% {
+    50% {
         height: 90px;
         background: linear-gradient(to bottom, var(--space-cadet) 50%, var(--ghost-white));
     }
 
-    90% {
+    60% {
         height: 90px;
         background: linear-gradient(to bottom, var(--space-cadet) 40%, var(--ghost-white));
+    }
+
+    70% {
+        height: 90px;
+        background: linear-gradient(to bottom, var(--space-cadet) 30%, var(--ghost-white));
+    }
+
+    80% {
+        height: 90px;
+        background: linear-gradient(to bottom, var(--space-cadet) 20%, var(--ghost-white));
+    }
+
+    90% {
+        height: 90px;
+        background: linear-gradient(to bottom, var(--space-cadet) 10%, var(--ghost-white));
     }
 
     100% {
