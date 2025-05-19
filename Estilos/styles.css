@@ -167,7 +167,7 @@ body, div, ul, nav, header, li, a {
     }
 
     10% {
-        height: 120px;
+        height: 115px;
         background: linear-gradient(to bottom, var(--space-cadet) 90%, var(--ghost-white));
     }
 
