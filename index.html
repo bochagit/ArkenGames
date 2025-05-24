@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="Estilos/fonts.css">
 </head>
 <body>
+    <div class="overlay--black"></div>
     <header class="header">
         <input type="checkbox" id="menu-toggle" class="header__checkbox">
-        <label for="menu-toggle" class="header__menu-toggle" role="button">=</label>
+        <label for="menu-toggle" class="header__menu-toggle" role="button"><img src="Fotos/Nav-icon.png" alt="Icono abrir menu" class="menu-toggle__icon"></label>
         <nav class="header__nav">
             <ul class="header__nav-list header__nav-list--arriba">
                 <li class="header__nav-item">
@@ -45,5 +46,27 @@
             </div>
         </div>
     </section>
+    <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.querySelectorAll('.header__nav-item a');
+    const body = document.body;
+
+    // Bloquear/desbloquear scroll al abrir/cerrar el menú
+    menuToggle.addEventListener('change', () => {
+        if (menuToggle.checked) {
+            body.style.overflow = 'hidden';
+        } else {
+            body.style.overflow = '';
+        }
+    });
+
+    // Cerrar el menú al hacer clic en un enlace
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.checked = false;
+            body.style.overflow = '';
+        });
+    });
+</script>
 </body>
 </html>

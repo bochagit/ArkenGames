@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    scroll-behavior: smooth;
     --hunyadi-yellow: #e3b05b;
     --space-cadet: #24214b;
     --blue-munsell: #53919b;
@@ -19,26 +20,48 @@ body, div, ul, nav, header, li, a {
 
 /* ----- HEADER SECTION ----- */
 
+.overlay--black {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    width: 100%;
+    height: 51px;
+}
+
 .header {
     background-color: var(--space-cadet);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
+    position: sticky;
+    top: 0;
     z-index: 10;
     text-align: center;
     font-family: 'Spectral SC';
     font-size: 20px;
     color: var(--hunyadi-yellow);
     text-transform: uppercase;
+    height: 51px;
+    animation: header-translucent both;
+    animation-timeline: scroll();
+    animation-range: 0px 50px;
 }
 
 .header__menu-toggle {
-    color: var(--hunyadi-yellow);
-    font-size: 3rem;
-    position: absolute;
-    right: 10px;
-    top: 10px;
+    margin-left: 90%;
+    display: flex;
+    align-items: center;
+    position: fixed;
+}
+
+.menu-toggle__icon {
+    width: auto;
+    height: auto;
+    background-color: var(--space-cadet);
+    animation: icon-appear both;
+    animation-timeline: scroll();
+    animation-range: 0px 50px;
 }
 
 .header__checkbox {
@@ -47,7 +70,7 @@ body, div, ul, nav, header, li, a {
 
 .header__nav {
     display: none;
-    background-color: var(--space-cadet);
+    background-color: inherit;
     position: absolute;
     height: 100vh;
     width: 100%;
@@ -76,6 +99,7 @@ body, div, ul, nav, header, li, a {
 
 .header__checkbox:checked ~ .header__nav {
     display: flex;
+    background-color: var(--space-cadet);
 }
 
 .header__logo-container {
@@ -103,7 +127,7 @@ body, div, ul, nav, header, li, a {
 
 /* ----- HEADER QUERIES ----- */
 
-@media screen and (min-width: 720px) {
+@media screen and (min-width: 721px) {
     .header {
         padding: 20px 0;
         position: sticky;
@@ -113,6 +137,9 @@ body, div, ul, nav, header, li, a {
         animation-timeline: scroll();
         animation-range: 10px 200px;
         background-image: url(../Fotos/Nav_wallpaper.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     }
 
     .header__nav {
@@ -240,6 +267,65 @@ body, div, ul, nav, header, li, a {
     opacity: 1;
 }
 
+.slider__nav a:is(:visited, :active, :focus, :link) {
+    text-decoration: none;
+    outline: none;
+    box-shadow: none;
+}
+
+/* ----- SLIDER QUERIES ----- */
+
+@media screen and (max-width: 720px) {
+    .slider {
+        padding: 0;
+    }
+
+    .slider__item {
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .slider__item img {
+        max-width: 100%;
+    }
+
+    .slider__nav {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 90%;
+        height: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .slider__nav a {
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: transparent;
+        opacity: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        position: relative;
+    }
+    .slider__nav a:first-child::before {
+        content: '⎆';
+        color: var(--ghost-white);
+        opacity: .75;
+        font-size: 1.5rem;
+        transform: rotate(180deg) translateY(-3px);
+    }
+    .slider__nav a:last-child::before {
+        content: '⎆';
+        color: var(--ghost-white);
+        opacity: .75;
+        font-size: 1.5rem;
+    }
+}
+
 /* ----- ANIMATIONS ----- */
 
 @keyframes header-movement {
@@ -251,5 +337,34 @@ body, div, ul, nav, header, li, a {
     100% {
         height: 80px;
         box-shadow: 0 2px 10px #000;
+    }
+}
+
+@keyframes header-translucent {
+    0% {
+        background-color: var(--space-cadet);
+    }
+
+    100% {
+        background-color: transparent;
+    }
+}
+
+@keyframes icon-appear {
+    0% {
+        height: 30px;
+        width: 30px;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+    }
+
+    100% {
+        height: 50px;
+        width: 50px;
+        transform: translate(-20px, 10px);
+        padding: 10px;
+        box-shadow: 2px 2px 9px #000;
+        border-radius: 20px;
     }
 }
