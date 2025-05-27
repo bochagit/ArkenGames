@@ -52,6 +52,7 @@ body, div, ul, nav, header, li, a {
     display: flex;
     align-items: center;
     position: fixed;
+    top: 10px;
 }
 
 .menu-toggle__icon {
