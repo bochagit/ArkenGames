@@ -16,7 +16,7 @@
         <nav class="header__nav">
             <ul class="header__nav-list header__nav-list--arriba">
                 <li class="header__nav-item">
-                    <a href="#">Inicio</a>
+                    <a href="#inicio">Inicio</a>
                 </li>
                 <li class="header__nav-item">
                     <a href="#">Juegos</a>
@@ -35,7 +35,7 @@
             </ul>
         </nav>
     </header>
-    <section class="slider">
+    <main class="slider" id="inicio">
         <div class="slider__wrapper">
             <div class="slider__item">
                 <img id="slide-1" src="Fotos/Banner_RHvsBF.png" alt="Banner of RH vs BF game">
@@ -46,6 +46,46 @@
                 <a href="#slide-2"></a>
             </div>
         </div>
+    </main>
+    <section class="form" id="contact">
+        <div class="form__social-media">
+            <h2>CONTACTO</h2>
+            <ul class="form__list">
+                <li>Instagram</li>
+                <li>YouTube</li>
+                <li>WhatsApp</li>
+            </ul>
+        </div>
+        <form class="form__form">
+            <div class="form__input-container">
+                <label>Nombre
+                    <input type="text" placeholder="Escribe tu nombre" required>
+                </label>
+            </div>
+            <div class="form__input-container">
+                <label>Razón social
+                    <input type="text" placeholder="Escribe tu razón social" required>
+                </label>
+            </div>
+            <div class="form__input-container">
+                <label>Teléfono
+                    <input type="tel" placeholder="Escribe tu número de teléfono" required>
+                </label>
+            </div>
+            <div class="form__input-container">
+                <label>Correo electrónico
+                    <input type="email" placeholder="Escribe tu correo electrónico" required>
+                </label>
+            </div>
+            <div class="form__input-container">
+                <label>Mensaje
+                    <textarea placeholder="Escribe tu mensaje"></textarea>
+                </label>
+            </div>
+            <div class="form__input-container">
+                <input type="submit">
+            </div>
+        </form>
     </section>
     <script>
     const menuToggle = document.getElementById('menu-toggle');

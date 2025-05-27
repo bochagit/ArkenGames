@@ -189,6 +189,8 @@ body, div, ul, nav, header, li, a {
     }
 }
 
+/* ----- HEADER ENDS ----- */
+
 /* ----- SLIDER SECTION ----- */
 
 .slider {
@@ -307,6 +309,110 @@ body, div, ul, nav, header, li, a {
         color: var(--ghost-white);
         opacity: .75;
         font-size: 1.5rem;
+    }
+}
+
+/* ----- SLIDER ENDS ----- */
+
+/* ----- CONTACT SECTION ----- */
+
+.form {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    padding: 30px 0;
+    background-color: var(--blue-munsell);
+}
+
+.form__social-media {
+    display: none;
+}
+
+.form__form {
+    padding: 12px;
+    max-width: 600px;
+    width: 100%;
+    display: grid;
+}
+
+.form__input-container :is(input, textarea) {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin: 4px;
+    margin-top: 6px;
+    border: none;
+    box-shadow: 2px 2px 4px #24214b66;
+}
+
+.form__input-container textarea {
+    resize: none;
+    min-height: 120px;
+    font-family: inherit;
+}
+
+.form__input-container input[type="submit"] {
+    padding: 12px;
+    background-color: var(--space-cadet);
+    color: var(--ghost-white);
+}
+
+/* ----- CONTACT QUERIES ----- */
+
+@media screen and (min-width: 721px) {
+    .form {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .form__social-media {
+        display: inline-block;
+    }
+
+    .form__form {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+            "name company"
+            "tel email"
+            "message message"
+            "submit submit";
+        gap: 12px;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 0 40px #24214b66;
+        color: var(--space-cadet);
+    }
+
+    .form__input-container:first-child {
+        grid-area: name;
+    }
+
+    .form__input-container:nth-child(2) {
+        grid-area: company;
+    }
+
+    .form__input-container:nth-child(3) {
+        grid-area: tel;
+    }
+
+    .form__input-container:nth-child(4) {
+        grid-area: email;
+    }
+
+    .form__input-container:nth-child(5) {
+        grid-area: message;
+    }
+
+    .form__input-container:nth-child(6) {
+        grid-area: submit;
+    }
+
+    .form__input-container :is(input, textarea) {
+        box-shadow: none;
+        border-radius: 4px;
     }
 }
 
