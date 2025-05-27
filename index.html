@@ -6,6 +6,7 @@
     <title>Arken Games</title>
     <link rel="stylesheet" href="Estilos/styles.css">
     <link rel="stylesheet" href="Estilos/fonts.css">
+    <link rel="icon" href="Fotos/Logo.png" type="image/png">
 </head>
 <body>
     <div class="overlay--black"></div>
@@ -67,6 +68,18 @@
             body.style.overflow = '';
         });
     });
+</script>
+<script>
+document.querySelectorAll('.slider__nav a').forEach(a => {
+    a.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').replace('#', '');
+        const targetImg = document.getElementById(targetId);
+        if (targetImg) {
+            targetImg.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+        }
+    });
+});
 </script>
 </body>
 </html>

@@ -21,7 +21,7 @@ body, div, ul, nav, header, li, a {
 /* ----- HEADER SECTION ----- */
 
 .overlay--black {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     background-color: #000;
@@ -30,7 +30,6 @@ body, div, ul, nav, header, li, a {
 }
 
 .header {
-    background-color: var(--space-cadet);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -40,7 +39,7 @@ body, div, ul, nav, header, li, a {
     text-align: center;
     font-family: 'Spectral SC';
     font-size: 20px;
-    color: var(--hunyadi-yellow);
+    color: var(--space-cadet);
     text-transform: uppercase;
     height: 51px;
     animation: header-translucent both;
@@ -49,7 +48,7 @@ body, div, ul, nav, header, li, a {
 }
 
 .header__menu-toggle {
-    margin-left: 90%;
+    margin: 0 20px;
     display: flex;
     align-items: center;
     position: fixed;
@@ -58,7 +57,7 @@ body, div, ul, nav, header, li, a {
 .menu-toggle__icon {
     width: auto;
     height: auto;
-    background-color: var(--space-cadet);
+    background-color: var(--ghost-white);
     animation: icon-appear both;
     animation-timeline: scroll();
     animation-range: 0px 50px;
@@ -99,7 +98,7 @@ body, div, ul, nav, header, li, a {
 
 .header__checkbox:checked ~ .header__nav {
     display: flex;
-    background-color: var(--space-cadet);
+    background-color: var(--ghost-white);
 }
 
 .header__logo-container {
@@ -129,17 +128,13 @@ body, div, ul, nav, header, li, a {
 
 @media screen and (min-width: 721px) {
     .header {
+        height: 100px;
         padding: 20px 0;
-        position: sticky;
+        position: relative;
         top: 0;
-        font-size: 1.2rem;
-        animation: header-movement both;
-        animation-timeline: scroll();
-        animation-range: 10px 200px;
-        background-image: url(../Fotos/Nav_wallpaper.png);
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+        font-size: 1.5rem;
+        animation: none;
+        background-color: var(--ghost-white);
     }
 
     .header__nav {
@@ -168,36 +163,20 @@ body, div, ul, nav, header, li, a {
     }
 
     .header__logo-container {
-        display: flex;
-        justify-content: center;
-        height: auto;
-        width: auto;
-        position: fixed;
-        width: auto;
-        height: auto;
+        height: 100px;
+        width: 100px;
+        position: absolute;
+        top: 0;
         left: 50%;
         transform: translateX(-50%);
-        margin-top: 5px;
+        margin: 0;
     }
 
     .header__logo {
-        max-width: 100%;
         width: 100px;
         height: 100px;
-        margin-top: 10px;
+        margin: 0;
     }
-
-    /* .header__logo-container {
-        position: fixed;
-        left: 50%;
-        top: 0;
-        transform: translateX(-50%);
-        width: auto;
-        height: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    } */
 
     .header__nav-list--abajo {
         justify-content: space-evenly;
@@ -213,21 +192,20 @@ body, div, ul, nav, header, li, a {
 
 .slider {
     padding: 1rem;
-    background-color: var(--ghost-white);
+    background-color: #000;
 }
 
 .slider__wrapper {
     position: relative;
-    max-width: 100%;
+    max-width: 75%;
     margin: 0 auto;
 }
 
 .slider__item {
     display: flex;
-    aspect-ratio: 5/4;
+    aspect-ratio: 18/9;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    box-shadow: 0 .5rem 3rem -.75rem hsla(0, 0%, 0%, .25);
     border-radius: .5rem;
     overflow-x: auto;
     scrollbar-width: none;      /* Firefox */
@@ -280,9 +258,14 @@ body, div, ul, nav, header, li, a {
         padding: 0;
     }
 
+    .slider__wrapper {
+        max-width: 100%;
+    }
+
     .slider__item {
         border-radius: 0;
         box-shadow: none;
+        aspect-ratio: 5/4;
     }
 
     .slider__item img {
@@ -328,21 +311,9 @@ body, div, ul, nav, header, li, a {
 
 /* ----- ANIMATIONS ----- */
 
-@keyframes header-movement {
-    0% {
-        height: 100px;
-        box-shadow: none;
-    }
-
-    100% {
-        height: 80px;
-        box-shadow: 0 2px 10px #000;
-    }
-}
-
 @keyframes header-translucent {
     0% {
-        background-color: var(--space-cadet);
+        background-color: var(--ghost-white);
     }
 
     100% {
@@ -362,7 +333,7 @@ body, div, ul, nav, header, li, a {
     100% {
         height: 50px;
         width: 50px;
-        transform: translate(-20px, 10px);
+        transform: translateY(10px);
         padding: 10px;
         box-shadow: 2px 2px 9px #000;
         border-radius: 20px;
