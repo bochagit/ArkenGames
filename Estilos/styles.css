@@ -70,6 +70,8 @@ body, div, ul, nav, header, li, a {
 
 .header__nav {
     display: none;
+    flex-direction: column;
+    justify-content: center;
     background-color: inherit;
     position: absolute;
     height: 100vh;
@@ -81,20 +83,13 @@ body, div, ul, nav, header, li, a {
 .header__nav-list {
     display: flex;
     flex-direction: column;
+    align-items: center;
     height: 20vh;
     width: 100%;
     margin: auto;
+    margin-bottom: 40vh;
     justify-content: space-evenly;
-}
-
-.header__nav-list--arriba {
-    position: absolute;
-    top: 30%;
-}
-
-.header__nav-list--abajo {
-    position: absolute;
-    bottom: 34.3%;
+    gap: 1.7rem;
 }
 
 .header__checkbox:checked ~ .header__nav {
@@ -104,13 +99,12 @@ body, div, ul, nav, header, li, a {
 
 .header__logo-container {
     width: 100%;
-    height: 150px;
+    height: 100px;
 }
 
 .header__logo {
     max-width: 100%;
     width: 100px;
-    margin-top: 10px;
 }
 
 .header__nav-item {
@@ -131,18 +125,21 @@ body, div, ul, nav, header, li, a {
     .header {
         height: 100px;
         padding: 20px 0;
-        position: relative;
+        position: sticky;
         top: 0;
-        font-size: 1.5rem;
-        animation: none;
+        font-size: 1.1rem;
+        animation: header-movement both;
+        animation-timeline: scroll();
+        animation-range: 0px 100px;
         background-color: var(--ghost-white);
+        border-bottom: 1px solid var(--space-cadet);
     }
 
     .header__nav {
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         position: static;
         height: 100%;
         width: 100%;
@@ -150,38 +147,25 @@ body, div, ul, nav, header, li, a {
     }
 
     .header__nav-list {
+        display: flex;
         flex-direction: row;
-        height: auto;
-        width: auto;
-        position: static;
-        margin: 0;
+        justify-content: end;
+        gap: 2rem;
+        margin: 0 30px;
         padding: 0;
     }
 
-    .header__nav-list--arriba {
-        justify-content: space-evenly;
-        flex: 1;
-    }
-
     .header__logo-container {
+        width: 150px;
         height: 100px;
-        width: 100px;
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        margin: 0;
     }
 
     .header__logo {
         width: 100px;
         height: 100px;
-        margin: 0;
-    }
-
-    .header__nav-list--abajo {
-        justify-content: space-evenly;
-        flex: 1;
+        animation: logo-disappear both;
+        animation-timeline: scroll();
+        animation-range: 0px 100px;
     }
 
     .header__menu-toggle {
@@ -316,14 +300,18 @@ body, div, ul, nav, header, li, a {
 
 /* ----- CONTACT SECTION ----- */
 
+input::placeholder {
+    font-family: 'Lora';
+}
+
 .form {
-    min-height: 60vh;
+    min-height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: end;
     align-items: center;
     padding: 30px 0;
-    background-color: var(--blue-munsell);
+    background-color: var(--ghost-white);
 }
 
 .form__social-media {
@@ -335,6 +323,8 @@ body, div, ul, nav, header, li, a {
     max-width: 600px;
     width: 100%;
     display: grid;
+    background-color: var(--ghost-white);
+    color: var(--space-cadet);
 }
 
 .form__input-container :is(input, textarea) {
@@ -345,6 +335,7 @@ body, div, ul, nav, header, li, a {
     margin-top: 6px;
     border: none;
     box-shadow: 2px 2px 4px #24214b66;
+    font-family: inherit;
 }
 
 .form__input-container textarea {
@@ -357,6 +348,33 @@ body, div, ul, nav, header, li, a {
     padding: 12px;
     background-color: var(--space-cadet);
     color: var(--ghost-white);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+.form__text-comercios {
+    max-width: 600px;
+    width: 100%;
+    padding: 0 20px;
+    color: var(--space-cadet);
+    text-align: start;
+    text-wrap: pretty;
+}
+
+.form__text-comercios h2 {
+    font-family: 'Spectral SC';
+    font-size: 1.5rem;
 }
 
 /* ----- CONTACT QUERIES ----- */
@@ -383,7 +401,8 @@ body, div, ul, nav, header, li, a {
         padding: 30px;
         border-radius: 12px;
         box-shadow: 0 0 40px #24214b66;
-        color: var(--space-cadet);
+        background-color: var(--hunyadi-yellow);
+        position: relative;
     }
 
     .form__input-container:first-child {
@@ -413,6 +432,20 @@ body, div, ul, nav, header, li, a {
     .form__input-container :is(input, textarea) {
         box-shadow: none;
         border-radius: 4px;
+    }
+
+    .form__input-container input[type="submit"] {
+        box-shadow: 0 0 4px var(--space-cadet);
+        transition: box-shadow .3s;
+    }
+
+    .form__input-container input[type="submit"]:hover {
+        box-shadow: none;
+        cursor: pointer;
+    }
+
+    .form__input-container input[type="submit"]:active {
+        opacity: 0.5;
     }
 }
 
@@ -444,5 +477,27 @@ body, div, ul, nav, header, li, a {
         padding: 10px;
         box-shadow: 2px 2px 9px #000;
         border-radius: 20px;
+    }
+}
+
+@keyframes header-movement {
+    0% {
+        height: 100px;
+        box-shadow: none;
+    }
+
+    100% {
+        height: 45px;
+        box-shadow: 0 0 10px var(--space-cadet);
+    }
+}
+
+@keyframes logo-disappear {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
     }
 }

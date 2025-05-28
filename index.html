@@ -14,20 +14,18 @@
         <input type="checkbox" id="menu-toggle" class="header__checkbox">
         <label for="menu-toggle" class="header__menu-toggle" role="button"><img src="Fotos/Nav-icon.png" alt="Icono abrir menu" class="menu-toggle__icon"></label>
         <nav class="header__nav">
-            <ul class="header__nav-list header__nav-list--arriba">
+            <div class="header__logo-container">
+                <img src="Fotos/Logo.png" alt="Logo Arken Games" class="header__logo">
+            </div>
+            <ul class="header__nav-list">
                 <li class="header__nav-item">
                     <a href="#inicio">Inicio</a>
                 </li>
                 <li class="header__nav-item">
                     <a href="#">Juegos</a>
                 </li>
-            </ul>
-            <div class="header__logo-container">
-                <img src="Fotos/Logo.png" alt="Logo Arken Games" class="header__logo">
-            </div>
-            <ul class="header__nav-list header__nav-list--abajo">
                 <li class="header__nav-item">
-                    <a href="#">Contacto</a>
+                    <a href="#contact">Contacto</a>
                 </li>
                 <li class="header__nav-item">
                     <a href="#">Quienes somos</a>
@@ -56,6 +54,12 @@
                 <li>WhatsApp</li>
             </ul>
         </div>
+        <div class="form__text-comercios">
+            <h2>¿Tienes un local o punto de venta?</h2>
+            <p>
+                Si te interesa ofrecer nuestros productos, simplemente completá el formulario de contacto para comercios y nos comunicaremos con vos a la brevedad.
+            </p>
+        </div>
         <form class="form__form">
             <div class="form__input-container">
                 <label>Nombre
@@ -69,7 +73,7 @@
             </div>
             <div class="form__input-container">
                 <label>Teléfono
-                    <input type="tel" placeholder="Escribe tu número de teléfono" required>
+                    <input type="number" placeholder="Escribe tu número de teléfono" required>
                 </label>
             </div>
             <div class="form__input-container">
