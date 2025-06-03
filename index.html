@@ -28,7 +28,7 @@
                     <a href="#contact">Contacto</a>
                 </li>
                 <li class="header__nav-item">
-                    <a href="#">Quienes somos</a>
+                    <a href="#quienes-somos">Quienes somos</a>
                 </li>
             </ul>
         </nav>
@@ -36,26 +36,33 @@
     <main class="slider" id="inicio">
         <div class="slider__wrapper">
             <div class="slider__item">
-                <img id="slide-1" src="Fotos/Banner_RHvsBF.png" alt="Banner of RH vs BF game">
-                <img id="slide-2" src="Fotos/Banner_volume-one.png" alt="Banner of Volume One game">
+                <img src="Fotos/Banner_RHvsBF.png" alt="Banner of RH vs BF game">
+                <img src="Fotos/Banner_volume-one.png" alt="Banner of Volume One game">
             </div>
             <div class="slider__nav">
-                <a href="#slide-1"></a>
-                <a href="#slide-2"></a>
+                <a href="javascript:void(0)"></a>
+                <a href="javascript:void(0)"></a>
             </div>
         </div>
     </main>
-    <section class="form" id="contact">
-        <div class="form__social-media">
-            <h2>CONTACTO</h2>
-            <ul class="form__list">
-                <li>Instagram</li>
-                <li>YouTube</li>
-                <li>WhatsApp</li>
-            </ul>
+    <section class="about" id="quienes-somos">
+        <div class="about__logo-container">
+            <img src="Fotos/Logo.png" alt="Arken Games Logo" class="about__logo">
         </div>
+        <div class="about__text">
+            <h2 class="about__title">Quienes somos</h2>
+            <p>
+                Arken Games es una editorial Argentina de juegos de mesa que cree que jugar es mucho más que entretenerse: es conectar, crear y compartir momentos reales.
+            </p>
+            <p>
+                Publicamos juegos pensados para disfrutar en familia o entre amigos, cuidando cada detalle para brindar experiencias memorables.
+            </p>
+        </div>
+    </section>
+    <section class="form" id="contact">
         <div class="form__text-comercios">
-            <h2>¿Tienes un local o punto de venta?</h2>
+            <h2>Contacto</h2>
+            <h3>¿Tienes un local o punto de venta?</h3>
             <p>
                 Si te interesa ofrecer nuestros productos, simplemente completá el formulario de contacto para comercios y nos comunicaremos con vos a la brevedad.
             </p>
@@ -114,14 +121,56 @@
     });
 </script>
 <script>
-document.querySelectorAll('.slider__nav a').forEach(a => {
-    a.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').replace('#', '');
-        const targetImg = document.getElementById(targetId);
-        if (targetImg) {
-            targetImg.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+document.addEventListener('DOMContentLoaded', () => {
+    const sliderItems = document.querySelectorAll('.slider__item img');
+    let currentIndex = 0;
+    let autoScrollInterval;
+
+    function startAutoScroll() {
+        if (autoScrollInterval) return;
+        autoScrollInterval = setInterval(() => {
+            currentIndex = (currentIndex + 1) % sliderItems.length;
+            sliderItems[currentIndex].scrollIntoView({
+                behavior: 'smooth',
+                inline: 'start',
+                block: 'nearest'
+            });
+        }, 10000);
+    }
+
+    function stopAutoScroll() {
+        clearInterval(autoScrollInterval);
+        autoScrollInterval = null;
+    }
+
+    // Inicia el auto scroll al cargar
+    if (window.innerWidth > 720) {
+        startAutoScroll();
+    }
+
+    // Pausa el auto scroll si el usuario scrollea más del 20% de la página
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY || window.pageYOffset;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const percent = docHeight > 0 ? (scrollY / docHeight) : 0;
+        if (percent > 0.2) {
+            stopAutoScroll();
+        } else {
+            startAutoScroll();
         }
+    });
+
+    // Scroll solo horizontal al hacer click en los dots
+    document.querySelectorAll('.slider__nav a').forEach((a, i) => {
+        a.addEventListener('click', function(e) {
+            e.preventDefault();
+            sliderItems[i].scrollIntoView({
+                behavior: 'smooth',
+                inline: 'start',
+                block: 'nearest'
+            });
+            currentIndex = i;
+        });
     });
 });
 </script>
