@@ -25,24 +25,26 @@
                     <img src="Fotos/Logo.png" alt="Logo Arken Games" class="header__logo">
                 </div>
                 <li class="header__nav-item">
-                    <a href="#contact">Contacto</a>
+                    <a href="#quienes-somos">Quienes somos</a>
                 </li>
                 <li class="header__nav-item">
-                    <a href="#quienes-somos">Quienes somos</a>
+                    <a href="#contact">Contacto</a>
                 </li>
             </ul>
         </nav>
     </header>
     <main class="slider" id="inicio">
-        <div class="slider__wrapper">
+        <div class="slider__wrapper" id="sliderWrapper">
             <div class="slider__item">
-                <img src="Fotos/Banner_RHvsBF.png" alt="Banner of RH vs BF game">
                 <img src="Fotos/Banner_volume-one.png" alt="Banner of Volume One game">
             </div>
-            <div class="slider__nav">
-                <a href="javascript:void(0)"></a>
-                <a href="javascript:void(0)"></a>
+            <div class="slider__item">
+                <img src="Fotos/Banner_RHvsBF.png" alt="Banner of RH vs BF game">
             </div>
+        </div>
+        <div class="slider__nav">
+            <a href="javascript:void(0)"></a>
+            <a href="javascript:void(0)"></a>
         </div>
     </main>
     <section class="about" id="quienes-somos">
@@ -70,27 +72,27 @@
         <form class="form__form">
             <div class="form__input-container">
                 <label>Nombre
-                    <input type="text" placeholder="Escribe tu nombre" required>
+                    <input type="text" placeholder="John Doe" required>
                 </label>
             </div>
             <div class="form__input-container">
                 <label>Razón social
-                    <input type="text" placeholder="Escribe tu razón social" required>
+                    <input type="text" placeholder="Arken S.R.L" required>
                 </label>
             </div>
             <div class="form__input-container">
                 <label>Teléfono
-                    <input type="number" placeholder="Escribe tu número de teléfono" required>
+                    <input type="number" placeholder="1134567890" required>
                 </label>
             </div>
             <div class="form__input-container">
                 <label>Correo electrónico
-                    <input type="email" placeholder="Escribe tu correo electrónico" required>
+                    <input type="email" placeholder="Arken@mail.com" required>
                 </label>
             </div>
             <div class="form__input-container">
                 <label>Mensaje
-                    <textarea placeholder="Escribe tu mensaje"></textarea>
+                    <textarea placeholder="Escribe tu mensaje..."></textarea>
                 </label>
             </div>
             <div class="form__input-container">
@@ -122,19 +124,24 @@
 </script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    const sliderItems = document.querySelectorAll('.slider__item img');
+    const sliderWrapper = document.getElementById('sliderWrapper');
+    const sliderItems = document.querySelectorAll('.slider__item');
     let currentIndex = 0;
     let autoScrollInterval;
+
+    function scrollToIndex(index) {
+        const item = sliderItems[index];
+        sliderWrapper.scrollTo({
+            left: item.offsetLeft,
+            behavior: 'smooth'
+        });
+    }
 
     function startAutoScroll() {
         if (autoScrollInterval) return;
         autoScrollInterval = setInterval(() => {
             currentIndex = (currentIndex + 1) % sliderItems.length;
-            sliderItems[currentIndex].scrollIntoView({
-                behavior: 'smooth',
-                inline: 'start',
-                block: 'nearest'
-            });
+            scrollToIndex(currentIndex);
         }, 10000);
     }
 
@@ -143,32 +150,14 @@ document.addEventListener('DOMContentLoaded', () => {
         autoScrollInterval = null;
     }
 
-    // Inicia el auto scroll al cargar
     if (window.innerWidth > 720) {
         startAutoScroll();
     }
 
-    // Pausa el auto scroll si el usuario scrollea más del 20% de la página
-    window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY || window.pageYOffset;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const percent = docHeight > 0 ? (scrollY / docHeight) : 0;
-        if (percent > 0.2) {
-            stopAutoScroll();
-        } else {
-            startAutoScroll();
-        }
-    });
-
-    // Scroll solo horizontal al hacer click en los dots
     document.querySelectorAll('.slider__nav a').forEach((a, i) => {
         a.addEventListener('click', function(e) {
             e.preventDefault();
-            sliderItems[i].scrollIntoView({
-                behavior: 'smooth',
-                inline: 'start',
-                block: 'nearest'
-            });
+            scrollToIndex(i);
             currentIndex = i;
         });
     });
