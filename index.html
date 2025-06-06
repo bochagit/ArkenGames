@@ -12,7 +12,7 @@
     <div class="overlay--black"></div>
     <header class="header">
         <input type="checkbox" id="menu-toggle" class="header__checkbox">
-        <label for="menu-toggle" class="header__menu-toggle" role="button"><img src="Fotos/Nav-icon.png" alt="Icono abrir menu" class="menu-toggle__icon"></label>
+        <label for="menu-toggle" class="header__menu-toggle" role="button"><img src="Fotos/nav-icon.png" alt="Icono abrir menu" class="menu-toggle__icon"></label>
         <nav class="header__nav">
             <ul class="header__nav-list">
                 <li class="header__nav-item">
@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
         autoScrollInterval = setInterval(() => {
             currentIndex = (currentIndex + 1) % sliderItems.length;
             scrollToIndex(currentIndex);
-        }, 10000);
+        }, 7000); // Cambia el valor para ajustar la velocidad del auto-scroll
     }
 
     function stopAutoScroll() {
@@ -150,9 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
         autoScrollInterval = null;
     }
 
-    if (window.innerWidth > 720) {
-        startAutoScroll();
-    }
+    startAutoScroll();
 
     document.querySelectorAll('.slider__nav a').forEach((a, i) => {
         a.addEventListener('click', function(e) {

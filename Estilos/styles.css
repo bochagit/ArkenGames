@@ -8,7 +8,7 @@
 }
 
 body {
-    background: url(../Fotos/Fondo5.png);
+    background: url(../Fotos/Fondo4.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -125,7 +125,7 @@ body, div, ul, nav, header, li, a {
 
 @media screen and (min-width: 721px) {
     .header {
-        height: 70px;
+        height: 7rem;
         width: 100%;
         padding: 20px 0;
         font-size: 1rem;
@@ -144,7 +144,8 @@ body, div, ul, nav, header, li, a {
         align-items: center;
         justify-content: center;
         height: 1rem;
-        width: 100%;
+        width: 60%;
+        margin: auto;
         position: static;
         z-index: 1;
     }
@@ -154,10 +155,10 @@ body, div, ul, nav, header, li, a {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        width: 50%;
+        gap: .8rem;
         margin: 0;
         padding: 0;
-        flex: 0 1 auto;
+        flex: 1 1 auto;
         color: var(--ghost-white);
     }
 
@@ -167,15 +168,15 @@ body, div, ul, nav, header, li, a {
     }
 
     .header__logo-container {
-        min-width: 70px;
+        min-width: 100px;
         width: 100px;
-        height: 70px;
+        height: 100px;
         position: relative;
     }
 
     .header__logo {
-        width: 70px;
-        height: 70px;
+        width: 100px;
+        height: 100px;
     }
 
     .header__menu-toggle {
@@ -206,6 +207,7 @@ body, div, ul, nav, header, li, a {
     height: 675px;
     background-color: #000;
     margin: 0 auto;
+    margin-top: 1rem;
     position: relative;
     left: 0;
     border-radius: .5rem;
@@ -302,6 +304,7 @@ body, div, ul, nav, header, li, a {
     .slider__wrapper {
         width: 100%;
         height: auto;
+        border-radius: 0;
     }
 
     .slider__item {
@@ -395,6 +398,7 @@ body, div, ul, nav, header, li, a {
         justify-content: center;
         max-width: 100%;
         padding: 20px;
+        margin: 2.5rem 0;
     }
 
     .about__text {
@@ -406,7 +410,7 @@ body, div, ul, nav, header, li, a {
 
     .about__title {
         text-align: center;
-        font-size: 1.3rem;
+        font-size: 1.8rem;
     }
 
     .about__logo-container {
@@ -431,7 +435,7 @@ input::placeholder {
 }
 
 .form {
-    min-height: 100vh;
+    min-height: 70vh;
     display: flex;
     flex-direction: column;
     justify-content: end;
@@ -443,6 +447,7 @@ input::placeholder {
     padding: 12px;
     max-width: 600px;
     width: 100%;
+    margin-top: 1.5rem;
     display: grid;
     color: var(--ghost-white);
 }
@@ -492,7 +497,7 @@ input[type="number"] {
     width: 100%;
     padding: 0 20px;
     color: var(--ghost-white);
-    text-align: start;
+    text-align: center;
     text-wrap: pretty;
 }
 
@@ -605,8 +610,11 @@ input[type="number"] {
         height: 50px;
         width: 50px;
         transform: translateY(10px);
+        background-color: transparent;
+        backdrop-filter: blur(20px);
         padding: 10px;
         box-shadow: 2px 2px 9px #000;
+        border: none;
         border-radius: 20px;
     }
 }
