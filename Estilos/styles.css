@@ -58,9 +58,6 @@ body, div, ul, nav, header, li, a {
 }
 
 .menu-toggle__icon {
-    width: auto;
-    height: auto;
-    background-color: var(--ghost-white);
     animation: icon-appear both;
     animation-timeline: scroll();
     animation-range: 0px 50px;
