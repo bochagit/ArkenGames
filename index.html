@@ -157,6 +157,8 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             scrollToIndex(i);
             currentIndex = i;
+            stopAutoScroll(); // Detener el auto-scroll al hacer clic en la navegación
+            startAutoScroll(); // Reiniciar el auto-scroll
         });
     });
 });
