@@ -22,14 +22,15 @@ body, div, ul, nav, header, li, a {
 
 /* ----- HEADER SECTION ----- */
 
-.overlay--black {
+/* .overlay--black {
+    display: none;
     position: absolute;
     top: 0;
     left: 0;
     background-color: #000;
     width: 100%;
     height: 51px;
-}
+} */
 
 .header {
     display: flex;
@@ -41,12 +42,12 @@ body, div, ul, nav, header, li, a {
     text-align: center;
     font-family: 'Spectral SC';
     font-size: 20px;
-    color: var(--space-cadet);
+    color: var(--ghost-white);
     text-transform: uppercase;
     height: 51px;
-    animation: header-translucent both;
+    /* animation: header-translucent both;
     animation-timeline: scroll();
-    animation-range: 0px 50px;
+    animation-range: 0px 50px; */
 }
 
 .header__menu-toggle {
@@ -91,7 +92,7 @@ body, div, ul, nav, header, li, a {
 
 .header__checkbox:checked ~ .header__nav {
     display: flex;
-    background-color: var(--ghost-white);
+    background-color: var(--space-cadet);
 }
 
 .header__logo-container {
