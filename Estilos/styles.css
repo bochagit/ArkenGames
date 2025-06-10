@@ -288,6 +288,14 @@ body, div, ul, nav, header, li, a {
     box-shadow: none;
 }
 
+.slider__nav a.active {
+    opacity: 1;
+}
+
+.slider__nav a.active::before {
+    opacity: 1;
+}
+
 .slider__button {
     position: absolute;
     top: 80%;
@@ -295,7 +303,44 @@ body, div, ul, nav, header, li, a {
     width: 25%;
     height: 7%;
     background-color: var(--ghost-white);
-    transition: box-shadow .4s;
+}
+
+.slider__button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -15%;
+    width: 10%;
+    height: 110%;
+    transform: skew(-20deg);
+    background-color: #000;
+    display: block;
+}
+
+.slider__button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -20%;
+    width: 15%;
+    height: 110%;
+    transform: skew(-20deg);
+    background-color: #000;
+    display: block;
+}
+
+.slider__button:hover::before {
+    position: absolute;
+    top: 0;
+    right: 110%;
+    transition: right 1.4s cubic-bezier(.36,-0.02,.34,.97);
+}
+
+.slider__button:hover::after {
+    position: absolute;
+    top: 0;
+    right: 110%;
+    transition: right 1s ease;
 }
 
 .slider__button-link {
@@ -310,8 +355,24 @@ body, div, ul, nav, header, li, a {
     text-transform: uppercase;
 }
 
-.slider__button:hover {
-    box-shadow: 0 0 20px var(--ghost-white);
+.slider__progress-bar {
+    position: absolute;
+    top: 29px;
+    left: 21.5%;
+    width: 57%;
+    max-width: 100%;
+    height: 3px;
+    background: transparent;
+    z-index: 10;
+    overflow: hidden;
+    border-radius: 1.5rem 0;
+}
+
+.slider__progress {
+    height: 100%;
+    width: 0%;
+    background: var(--hunyadi-yellow);
+    transition: width 0s;
 }
 
 /* ----- SLIDER QUERIES ----- */
@@ -372,6 +433,15 @@ body, div, ul, nav, header, li, a {
 
     .slider__button-link {
         font-size: .5rem;
+    }
+
+    .slider__progress-bar {
+        width: 100%;
+        left: 0;
+        top: 10px;
+        height: 2px;
+        border-radius: 0;
+        z-index: -1;
     }
 }
 
