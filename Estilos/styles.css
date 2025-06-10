@@ -436,10 +436,10 @@ body, div, ul, nav, header, li, a {
     }
 
     .slider__progress-bar {
-        position: fixed;
+        position: absolute;
         width: 100%;
         left: 0;
-        top: 0;
+        top: .9rem;
         height: 2px;
         border-radius: 0;
         z-index: -1;
@@ -493,10 +493,11 @@ body, div, ul, nav, header, li, a {
 
 @media screen and (max-width: 720px) {
     .about {
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
-        justify-content: center;
+        justify-content: space-around;
         max-width: 100%;
+        gap: 2rem;
         padding: 20px;
         margin: 2.5rem 0;
     }
