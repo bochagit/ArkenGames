@@ -607,6 +607,7 @@ input[type="number"] {
 .form__text-comercios h2 {
     font-family: 'Spectral SC';
     font-size: 1.8rem;
+    text-transform: uppercase;
     color: var(--hunyadi-yellow);
 }
 
