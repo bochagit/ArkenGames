@@ -8,7 +8,7 @@
 }
 
 body {
-    background: url(../Fotos/Fondo4.png);
+    background: url(../Fotos/Fondo.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -747,10 +747,12 @@ input[type="number"] {
         text-align: center;
         padding: 0;
         font-size: .9rem;
+        width: 30%;
     }
 
     .footer__social-media {
         flex-direction: column;
+        width: 40%;
     }
 
     .footer__social-media-icons {
@@ -765,6 +767,10 @@ input[type="number"] {
         display: block;
         color: var(--ghost-white);
         font-family: 'Spectral SC';
+    }
+
+    .footer__logo-container {
+        width: 30%;
     }
 }
 

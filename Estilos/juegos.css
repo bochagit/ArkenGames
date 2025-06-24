@@ -65,11 +65,15 @@
 
 /* ----- ROBIN HOOD VS. BIG FOOT PAGE ----- */
 
+/* ----- TITLE & BANNER ----- */
+
 .title {
-    color: var(--ghost-white);
-    font-size: 1.1rem;
+    color: var(--hunyadi-yellow);
+    font-size: 1rem;
+    font-family: 'Spectral SC';
     text-align: center;
     text-transform: uppercase;
+    margin-bottom: 2rem;
 }
 
 .banner__container {
@@ -83,17 +87,252 @@
     height: auto;
 }
 
+/* ----- TITLE & BANNER QUERIES ----- */
+
+@media screen and (min-width: 721px) {
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .banner__container {
+        width: 70vw;
+    }
+}
+
+/* ----- TITLE & BANNER ENDS ----- */
+
 /* ----- MAIN SECTION ----- */
+
+.main {
+    color: var(--ghost-white);
+    font-family: 'Lora';
+    font-size: .8rem;
+    width: 95vw;
+    margin: auto;
+    text-wrap: pretty;
+}
+
+.main__text {
+    margin: 2rem 0;
+}
 
 .main__icons {
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
 }
 
 .main__icon-item {
     list-style: none;
 }
 
-.main {
+.main__icon-icon {
+    width: 20px;
+    height: auto;
+    fill: var(--hunyadi-yellow);
+    vertical-align: middle;
+}
+
+.--players {
+    width: 30px;
+}
+
+.main__title {
+    font-family: 'Spectral SC';
+    font-size: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    text-wrap: balance;
+    margin: 1.3rem 0;
+    color: var(--hunyadi-yellow);
+}
+
+.main__description-item {
+    list-style: none;
+}
+
+.--img {
+    width: 100%;
+    margin: auto;
+    filter: drop-shadow(0 0 2px var(--ghost-white));
+}
+
+.main__description-img {
+    width: 100%;
+    height: auto;
+}
+
+.box-content {
+    list-style: square;
+    margin: 1rem;
+}
+
+.box-content__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.box__box {
+    width: 20%;
+    height: auto;
+    filter: drop-shadow(0 0 2px var(--ghost-white));
+}
+
+/* ----- MAIN QUERIES ----- */
+
+@media screen and (min-width: 721px) {
+    .main {
+        width: 70vw;
+        font-size: 1rem;
+    }
+
+    .main__icons {
+        width: 70vw;
+        margin: 1.5rem 0;
+    }
+
+    .main__title {
+        font-size: 1.2rem;
+    }
+
+    .--maps {
+        display: grid;
+        grid-template-areas: 
+        "text img"
+        "text img";
+        grid-template-columns: 45% 55%;
+    }
+
+    .--img {
+        width: 100%;
+        grid-column: span 2;
+        grid-area: img;
+    }
+}
+
+/* ----- MAIN ENDS ----- */
+
+/* ----- GALLERY SECTION ----- */
+
+.gallery__title {
     color: var(--ghost-white);
+    font-family: 'Spectral SC';
+    font-size: 1.2rem;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 2rem 0;
+}
+
+.gallery__title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gallery__title-line {
+    width: 30%;
+    height: 2px;
+    background-color: var(--hunyadi-yellow);
+}
+
+.gallery {
+    display: flex;
+    width: 95vw;
+    height: 40vh;
+    margin: auto;
+}
+
+.gallery img {
+    width: 0;
+    flex-grow: 1;
+    object-fit: cover;
+    opacity: .6;
+    transition: .5s ease;
+}
+
+.gallery img:hover {
+    width: 70%;
+    opacity: 1;
+    filter: contrast(1.2);
+}
+
+/* ----- GALLERY QUERIES ----- */
+
+@media screen and (min-width: 721px) {
+    .gallery {
+        width: 60vw;
+        height: 70vh;
+    }
+}
+
+/* ----- GALLERY ENDS ----- */
+
+/* ----- SIMILAR GAMES SECTION ----- */
+
+.similar__title {
+    color: var(--ghost-white);
+    font-family: 'Spectral SC';
+    font-size: 1.2rem;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 2rem 0;
+}
+
+.similar__title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.similar__title-line {
+    width: 12%;
+    height: 2px;
+    background-color: var(--hunyadi-yellow);
+}
+
+.similar__game-container {
+    width: 12rem;
+    margin: auto;
+    box-shadow: 0 0 10px var(--blue-munsell);
+    backdrop-filter: blur(10px);
+    border-radius: 2rem;
+    padding: 1.2rem;
+    transition: box-shadow .3s;
+}
+
+.similar__game-container:hover {
+    box-shadow: 0 0 20px var(--ghost-white);
+}
+
+.similar__game-box {
+    width: 100%;
+}
+
+.similar__game-name {
+    color: var(--ghost-white);
+    text-align: center;
+    font-family: 'Lora';
+    font-size: .8rem;
+    width: 100%;
+}
+
+.similar__game-link:is(:visited, :active, :focus, :link) {
+    text-decoration: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.slider__nav a:is(:visited, :active, :focus, :link) {
+    text-decoration: none;
+    outline: none;
+    box-shadow: none;
+}
+
+/* ----- SIMILAR GAMES QUERIES ----- */
+
+@media screen and (min-width: 721px) {
+    .similar__title-line {
+        width: 30%;
+    }
 }
