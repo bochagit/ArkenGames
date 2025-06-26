@@ -24,6 +24,12 @@ body, div, ul, nav, header, li, a {
     padding: 0;
 }
 
+.wallpaper__overlay {
+    width: 100%;
+    height: 100%;
+    background-color: #0005;
+}
+
 /* ----- HEADER SECTION ----- */
 
 /* .overlay--black {
