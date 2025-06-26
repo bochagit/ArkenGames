@@ -1,3 +1,7 @@
+:root {
+    background-color: #000;
+}
+
 * {
     box-sizing: border-box;
     scroll-behavior: smooth;
@@ -809,4 +813,41 @@ input[type="number"] {
         border: none;
         border-radius: 20px;
     }
+}
+
+@keyframes slide-out {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* ----- ANIMATIONS ENDS ----- */
+
+/* ----- VIEW TRANSITIONS ----- */
+
+@view-transition {
+    navigation: auto;
+}
+
+::view-transition-old(root) {
+    animation: slide-out .5s forwards;
+}
+
+::view-transition-new(root) {
+    animation: slide-in .5s forwards;
 }
