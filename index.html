@@ -7,6 +7,19 @@
     <link rel="stylesheet" href="Estilos/styles.css">
     <link rel="stylesheet" href="Estilos/fonts.css">
     <link rel="icon" href="Fotos/Logo.webp" type="image/webp">
+    <meta name="description" content="Pagina web de Arken Games, editorial de juegos de mesa en Argentina.">
+    <meta name="author" content="Gonzalo Cardozo - github.com/bochagit">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init({
+                publicKey: "YOUR_PUBLIC_KEY",
+            });
+        })();
+    </script>
+    <script src="Scripts/sendmail.js"></script>
 </head>
 <body>
     <div class="wallpaper__overlay">
@@ -83,30 +96,30 @@
                 Si te interesa ofrecer nuestros productos, simplemente completá el formulario de contacto para comercios y nos comunicaremos con vos a la brevedad.
             </p>
         </div>
-        <form class="form__form">
+        <form class="form__form" id="contact-form">
             <div class="form__input-container">
                 <label>Nombre
-                    <input type="text" placeholder="John Doe" required>
+                    <input type="text" id="name" placeholder="John Doe" required>
                 </label>
             </div>
             <div class="form__input-container">
                 <label>Razón social
-                    <input type="text" placeholder="Arken S.R.L" required>
+                    <input type="text" id="company" placeholder="Arken S.R.L" required>
                 </label>
             </div>
             <div class="form__input-container">
                 <label>Teléfono
-                    <input type="number" placeholder="1134567890" required>
+                    <input type="number" id="tel" placeholder="1134567890" required>
                 </label>
             </div>
             <div class="form__input-container">
                 <label>Correo electrónico
-                    <input type="email" placeholder="Arken@mail.com" required>
+                    <input type="email" id="email" placeholder="Arken@mail.com" required>
                 </label>
             </div>
             <div class="form__input-container">
                 <label>Mensaje
-                    <textarea placeholder="Escribe tu mensaje..."></textarea>
+                    <textarea id="message" placeholder="Escribe tu mensaje..."></textarea>
                 </label>
             </div>
             <div class="form__input-container">
