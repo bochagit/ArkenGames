@@ -353,6 +353,10 @@ body, div, ul, nav, header, li, a {
     transition: right 1s ease;
 }
 
+.slider__button::before, .slider__button::after {
+    pointer-events: none;
+}
+
 .slider__button-link {
     width: 100%;
     height: 100%;
