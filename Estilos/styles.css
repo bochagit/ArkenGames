@@ -2,12 +2,6 @@
     background-color: #000;
 }
 
-html, body {
-    min-height: 100vh;
-    height: auto;
-    overflow-x: hidden;
-}
-
 * {
     box-sizing: border-box;
     scroll-behavior: smooth;
