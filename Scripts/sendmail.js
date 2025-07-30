@@ -1,8 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contact-form');
     if (form) {
+        const submitBtn = form.querySelector('input[type="submit"]');
         form.addEventListener('submit', function(e) {
             e.preventDefault(); // Evita el reload
+
+            // Deshabilita el botón para evitar múltiples envíos
+            submitBtn.disabled = true;
+            submitBtn.value = "Enviando...";
 
             let parms = {
                 name: document.getElementById("name").value,
@@ -16,8 +21,12 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(function() {
                 alert("¡Mensaje enviado!");
                 form.reset();
+                submitBtn.disabled = false;
+                submitBtn.value = "Enviar";
             }, function(error) {
                 alert("Error al enviar el mensaje.");
+                submitBtn.disabled = false;
+                submitBtn.value = "Enviar";
             });
         });
     }
