@@ -751,6 +751,10 @@ input[type="number"] {
     align-items: center;
 }
 
+.footer__social-media-icons {
+    display: flex;
+}
+
 .footer__social-media p {
     display: none;
 }
