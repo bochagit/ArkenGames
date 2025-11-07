@@ -266,20 +266,7 @@ main.slider {
     background-color: transparent;
 }
 
-.slider__nav a:first-child::before {
-    content: '';
-    width: 3rem;
-    height: .2rem;
-    display: block;
-    position: absolute;
-    top: 80%;
-    transform: translateY(-50%);
-    background-color: var(--ghost-white);
-    opacity: .60;
-    margin: 0 auto;
-}
-
-.slider__nav a:last-child::before {
+.slider__nav a::before {
     content: '';
     width: 3rem;
     height: .2rem;
@@ -444,11 +431,7 @@ main.slider {
         opacity: 1;
     }
 
-    .slider__nav a:first-child::before {
-        content: none;
-    }
-
-    .slider__nav a:last-child::before {
+    .slider__nav a::before {
         content: none;
     }
 
