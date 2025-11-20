@@ -53,3 +53,46 @@ El propósito de ArkenGames es practicar y reforzar conceptos fundamentales de:
 - Organización de un proyecto real  
 - Deploy y configuración de infraestructura web  
 - Optimización básica y responsive design
+
+---
+
+## 🔧 Instalación y uso
+
+No requiere instalación ni dependencias.
+
+1. Cloná el repositorio:  
+   ```bash
+   git clone https://github.com/bochagit/ArkenGames
+2. Abrí el archivo index.html en tu navegador.
+3. Listo, el sitio se ejecuta de manera estática.
+
+---
+
+🌐 Deployment
+
+El proyecto está desplegado en:
+
+DonWeb (hosting estático)
+
+DNS configurado con Cloudflare
+
+Dominio gestionado desde NIC.ar
+
+---
+
+🤝 Contribuciones
+
+Las contribuciones, sugerencias y mejoras son bienvenidas.
+Si encontrás algún problema o querés aportar algo, podés abrir un issue o hacer un pull request.
+
+---
+
+👤 Autor
+
+Gonzalo Cardozo
+📧 Contacto: gocardozo@alumno.unlam.edu.ar
+🔗 GitHub: https://github.com/bochagit
+
+---
+
+¡Gracias por visitar el proyecto! 🎮🚀
