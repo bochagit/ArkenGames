@@ -82,16 +82,16 @@ Dominio gestionado desde NIC.ar
 
 🤝 Contribuciones
 
-Las contribuciones, sugerencias y mejoras son bienvenidas.
+Las contribuciones, sugerencias y mejoras son bienvenidas.  
 Si encontrás algún problema o querés aportar algo, podés abrir un issue o hacer un pull request.
 
 ---
 
 👤 Autor
 
-Gonzalo Cardozo
-📧 Contacto: gocardozo@alumno.unlam.edu.ar
-🔗 GitHub: https://github.com/bochagit
+Gonzalo Cardozo  
+📧 Contacto: gocardozo@alumno.unlam.edu.ar  
+🔗 GitHub: https://github.com/bochagit  
 
 ---
 
