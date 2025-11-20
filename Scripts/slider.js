@@ -3,14 +3,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const sliderItems = document.querySelectorAll('.slider__item');
     const navDots = document.querySelectorAll('.slider__nav a');
     const progressBar = document.querySelector('.slider__progress');
-    const AUTO_SCROLL_TIME = 7000; // Tiempo en milisegundos para el auto-scroll
+    const AUTO_SCROLL_TIME = 7000;
     let currentIndex = 0;
     let autoScrollInterval;
     
     function animateProgressBar() {
         progressBar.style.transition = 'none';
         progressBar.style.width = '0%';
-        // Forzar reflow para reiniciar la animación
         void progressBar.offsetWidth;
         progressBar.style.transition = `width ${AUTO_SCROLL_TIME}ms linear`;
         progressBar.style.width = '100%';
@@ -41,10 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
         autoScrollInterval = setInterval(() => {
             currentIndex = (currentIndex + 1) % sliderItems.length;
             scrollToIndex(currentIndex);
-            // Espera a que termine el scroll antes de reiniciar la barra
             setTimeout(() => {
                 animateProgressBar();
-            }, 400); // 400ms es el tiempo estimado del scroll suave, ajusta si es necesario
+            }, 400);
         }, AUTO_SCROLL_TIME);
     }
 
@@ -52,8 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         clearInterval(autoScrollInterval);
         autoScrollInterval = null;
     }
-
-    // Inicializa el primer dot como activo
+    
     setActiveDot(currentIndex);
     startAutoScroll();
 
@@ -64,12 +61,11 @@ document.addEventListener('DOMContentLoaded', () => {
             currentIndex = i;
             stopAutoScroll();
             startAutoScroll();
-            animateProgressBar(); // Reinicia la barra en cada click manual
+            animateProgressBar();
         });
     });
 
     sliderWrapper.addEventListener('scroll', () => {
-        // Calcula el slide más visible
         let minDiff = Infinity;
         let visibleIndex = 0;
         sliderItems.forEach((item, i) => {
@@ -86,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let scrollTimeout = null;
     
     sliderWrapper.addEventListener('scroll', () => {
-        // Calcula el slide más visible
         let minDiff = Infinity;
         let visibleIndex = 0;
         sliderItems.forEach((item, i) => {
@@ -99,12 +94,11 @@ document.addEventListener('DOMContentLoaded', () => {
         setActiveDot(visibleIndex);
         currentIndex = visibleIndex;
     
-        // Reinicia el autoscroll y la barra cuando termina el scroll manual
         if (scrollTimeout) clearTimeout(scrollTimeout);
         scrollTimeout = setTimeout(() => {
             stopAutoScroll();
             startAutoScroll();
             animateProgressBar();
-        }, 150); // 150ms después de dejar de scrollear
+        }, 150);
     });
 });
